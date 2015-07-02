@@ -15,7 +15,7 @@ public class Car {
     @GeneratedValue
     public Long id;
 
-    public String model;
+    public String brand, model;
     public Year year;
 
 }

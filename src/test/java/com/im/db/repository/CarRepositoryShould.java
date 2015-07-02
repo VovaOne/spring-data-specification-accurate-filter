@@ -33,9 +33,21 @@ public class CarRepositoryShould {
 
     @Before
     public void prepare() {
-        Car md = new Car();
-        repository.save(md);
-//        repository.save(customer2);
+        Car passat = new Car();
+        passat.brand = "volkswagen";
+        passat.model = "passat";
+
+        Car mazda = new Car();
+        mazda.brand = "mazda";
+        mazda.model = "6";
+
+        Car _350z = new Car();
+        _350z.brand = "nissan";
+        _350z.model = "350z";
+
+        repository.save(passat);
+        repository.save(mazda);
+        repository.save(_350z);
     }
 
 
@@ -43,11 +55,11 @@ public class CarRepositoryShould {
     public void retrieveCarByFilter() {
 
         Filter filter = new Filter();
-        filter.addCondition(new Condition.Builder().setComparison(Comparison.eq).setField("firstname").setValue("Dan").build());
+        filter.addCondition(new Condition.Builder().setComparison(Comparison.eq).setField("brand").setValue("volkswagen").build());
 
-        List<Car> carList = repository.findAll((root, criteriaQuery, criteriaBuilder) -> null);
+        List<Car> carList = repository.findAll(filter);
         assertThat(carList.isEmpty(), is(false));
-        assertEquals(carList.get(0).model, "");
+        assertEquals(carList.get(0).brand, "volkswagen");
     }
 
 
