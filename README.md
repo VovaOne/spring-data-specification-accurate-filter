@@ -85,3 +85,9 @@ public void retrieveCarByFilter() {
 This filter is the good solution with REST approach. It improve a Spring crud repository and specification repository adding a dynamic filtering also you can use it with spring-data-rest to have api from scratch.
 
 [Spring Specification]:http://spring.io/blog/2011/04/26/advanced-spring-data-jpa-specifications-and-querydsl/
+
+
+
+###As alternative you can use Querydsl web support when it will work or ActiveJpa
+ 
+###As alternative to Spring data and you can use template pattern with base generic class to avoid bunch of interfaces
